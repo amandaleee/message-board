@@ -599,3 +599,57 @@ ActionController::UrlGenerationError (No route matches {:action=>"show", :contro
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (22.9ms)
+
+
+Started GET "/messages/" for ::1 at 2016-05-23 13:44:29 -0500
+Processing by MessagesController#index as HTML
+  Rendered messages/index.erb within layouts/application (0.1ms)
+Completed 200 OK in 70ms (Views: 69.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/new" for ::1 at 2016-05-23 13:44:33 -0500
+Processing by MessagesController#new as HTML
+  Rendered messages/new.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/messages" for ::1 at 2016-05-23 13:44:39 -0500
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1lCSuFJkpassTS0BQr6sgJTXLGfw39jEXDQ9U6Xb7xSDItYt403bmX8A1lt1XIxWe0zk3LV+B8kBSj8GY7B4Pw==", "message"=>{"title"=>"stuff", "description"=>"stuff stuff"}, "commit"=>"Create Message"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "messages" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "stuff"], ["description", "stuff stuff"], ["created_at", "2016-05-23 18:44:39.131765"], ["updated_at", "2016-05-23 18:44:39.131765"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.0ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"messages"} missing required keys: [:id]):
+  app/controllers/messages_controller.rb:12:in `create'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (28.9ms)
+
+
+Started POST "/messages" for ::1 at 2016-05-23 13:46:15 -0500
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1lCSuFJkpassTS0BQr6sgJTXLGfw39jEXDQ9U6Xb7xSDItYt403bmX8A1lt1XIxWe0zk3LV+B8kBSj8GY7B4Pw==", "message"=>{"title"=>"test test", "description"=>"more stuff stuff"}, "commit"=>"Create Message"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "test test"], ["description", "more stuff stuff"], ["created_at", "2016-05-23 18:46:15.428510"], ["updated_at", "2016-05-23 18:46:15.428510"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 8ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/messages" for ::1 at 2016-05-23 13:46:15 -0500
+Processing by MessagesController#index as HTML
+  Rendered messages/index.erb within layouts/application (0.0ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms)

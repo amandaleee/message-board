@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
 
 	def create
 		Message.create(message_params)
-		redirect_to message_path
+		redirect_to messages_path
 	end
 
 	private
