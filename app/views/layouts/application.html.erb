@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+	<header class="clearfix">
+		<div class="left-nav">
+	    <ul>
+	      <li><%= link_to "Home", messages_path %></li>
+	    </ul>
+	  </div><!--/left-nav-->
+	  <div class="right-nav">
+	    <ul>
+	      <li><%= link_to "Add Message", new_message_path %></li>
+	    </ul>
+	  </div><!--/right-nav-->
+	</header>
+	<section class="content">
+		<%= yield %>
+	</section><!--/section-->
 
 </body>
 </html>
